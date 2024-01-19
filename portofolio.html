@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <title>Final Project | M Fajrul Nugraha | Portofolio</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                      <a class="navbar-brand" href="#">
+                        <img src="/assets/img/logo/Logo_Bithealth_.png" alt="" style="height: 31px; width: 145px;">
+                      </a>
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav ms-md-auto">
+                          <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                          <a class="nav-link active text-white" href="portofolio.html" style="background-color: #182863;">Portfolio</a>
+                          <a class="nav-link" href="#">Blog</a>
+                          <a class="nav-link" href="#">About</a>
+                          <a class="nav-link" href="#">Contact</a>
+                          <a class="nav-link" href="todos.html">Todos</a>
+                        </div>
+                      </div>
+                    </div>
+                  </nav>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row bg-body-tertiary" style="margin-top: 70px;">
+                <div class="col-md-3 col-lg-4 text-center" style="margin-top: 17px;margin-bottom: 16px;">
+                    <img src="/assets/img/avatar/kucing.jpg" alt="avatar" class="rounded-circle img-fluid">
+                </div>
+                <div class="col-md-3 col-lg-4 border-end">
+                    <h4 style="font-family:'Times New Roman', Times, serif;margin-top: 22px;" id="fullName" >M Fajrul Nugraha</h4>
+                    <h6 style="font-family: Arial, Helvetica, sans-serif;" id="jobRole">Software Engineer</h6>
+                    <button class="btn btn-success" style="margin-top: 80px;" id="contact">Contact</button>
+                    <button class="btn btn-primary" style="margin-top: 80px;" id="resume">Resume</button>
+                </div>
+                <div class="col-md-3 col-lg-4" style="margin-top: 20px;">
+                    <table class="table table-borderless" style="text-decoration: none;">
+                        <tr>
+                            <th>Availability</th>
+                            <td id="availability">Full-time</td>
+                        </tr>
+                        <tr>
+                            <th>Age</th>
+                            <td id="age">17</td>
+                        </tr>
+                        <tr>
+                            <th>Location</th>
+                            <td id="location">ID</td>
+                        </tr>
+                        <tr>
+                            <th>Experience</th>
+                            <td id="experience">10 Years</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td id="email">fajrul.nugraha@bithealth.co.id</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row bg-body-tertiary" style="margin-top: 20px;">
+                <div class="container">
+                    <form name="updateForm" action="" id="updateForm" onsubmit="updateData()">
+                        <div class="mb-3">
+                          <label for="inputName" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="inputName" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputRole" class="form-label">Role</label>
+                          <input type="text" class="form-control" id="inputRole">
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputAvailability" class="form-label">Availability</label>
+                          <input type="text" class="form-control" id="inputAvailability">
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputAge" class="form-label">Age</label>
+                          <input type="number" class="form-control" id="inputAge">
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputLocation" class="form-label">Location</label>
+                          <input type="text" class="form-control" id="inputLocation">
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputExperience" class="form-label">Years Experience</label>
+                          <input type="number" class="form-control" id="inputExperience">
+                        </div>
+                        <div class="mb-3">
+                          <label for="inputEmail" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="inputEmail">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" id="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.onload = function () { 
+                login();
+            }
+
+            function login(){
+                // alert('apaja');
+                pwd = prompt("Enter your password!"); 
+                // console.log(pwd);
+                if (pwd === '123') {
+                    alert('Selamat! Kamu anggap aja sudah login!');
+                } else {
+                    alert('Password salah! Login di lain waktu yaa..');
+                }
+            }
+            
+            const btn = document.querySelector('#submit');
+
+            btn.addEventListener('click', (e) => {
+                // prevent the form from submitting
+                e.preventDefault();
+
+                let formName = document.getElementById('inputName').value;
+                let formRole = document.getElementById("inputRole").value;
+                let formAvailability = document.getElementById("inputAvailability").value;
+                let formAge = document.getElementById("inputAge").value;
+                let formLocation = document.getElementById("inputLocation").value;
+                let formExperience = document.getElementById("inputExperience").value;
+                let formEmail = document.getElementById("inputEmail").value;
+
+                document.getElementById('fullName').innerHTML = formName;
+                document.getElementById('jobRole').innerHTML = formRole;
+                document.getElementById('availability').innerHTML = formAvailability;
+                document.getElementById('age').innerHTML = formAge;
+                document.getElementById('location').innerHTML = formLocation;
+                document.getElementById('experience').innerHTML = formExperience;
+                document.getElementById('email').innerHTML = formEmail;
+
+                alert('Selamat! Data berhasil diubah');
+
+                document.getElementById('updateForm').hidden = true;
+            });
+    
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>
