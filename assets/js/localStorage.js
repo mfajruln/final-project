@@ -10,7 +10,7 @@ function displayTodo() {
             <ul class="list-group list-group-horizontal rounded-0 bg-transparent m-2">
                 <li class="list-group-item d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input me-0" value="" id="${todos[i].id}" aria-label="..." ${todos[i].checked ? 'checked': ''} />
+                    <input class="form-check-input me-0" type="checkbox" value="" name="" id=${todos[i].id} onchange="setComplete(this.checked, this.id)" aria-label="..." ${todos[i].checked ? "checked" : ""}>
                     </div>
                 </li>
 
@@ -55,18 +55,46 @@ function submitTodo(){
     displayTodo();
 }
 
+const setComplete = (checked, id) => {
+    let todos = JSON.parse(localStorage.getItem("todos"))
+
+    todos = todos.map(el => {
+        if (el.id === Number(id)) {
+            el.checked = checked
+        }
+
+        return el
+    })
+
+    localStorage.setItem('todos', JSON.stringify(todos))
+
+    displayTodo()
+}
+
 function deleteTodo(todoId){
     // console.log("mau delete");
+    // let todos = JSON.parse(localStorage.getItem('todos'))
+    // let todoTarget = todoId
+    // let tampSementara = []
+    // todos.forEach(todo => {
+    //     if (todo.id !== todoTarget) {
+    //         tampSementara.push(todo)
+    //         localStorage.setItem('todos', JSON.stringify(tampSementara))
+    //         // console.log("mau delete todo dengan ID :", todo.id);
+    //     }
+    // });
+    
+    // console.log(tampSementara);
+    
     let todos = JSON.parse(localStorage.getItem('todos'))
-    let todoTarget = todoId
-    let tampSementara = []
-    todos.forEach(todo => {
-        if (todo.id !== todoTarget) {
-            tampSementara.push(todo)
-            // console.log("mau delete todo dengan ID :", todo.id);
-        }
-    });
-
-    console.log(tampSementara);
-
+    
+    todos = todos.filter(el => el.id !== todoId)
+    
+    if (todos.length) {
+        localStorage.setItem('todos', JSON.stringify(todos))
+    } else {
+        localStorage.removeItem('todos')
+    }
+    
+    displayTodo();
 }

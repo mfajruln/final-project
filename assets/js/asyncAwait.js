@@ -13,7 +13,6 @@ let loadData = async () => {
                 <td>${data.name}</td>
                 <td>${data.phone}</td>
                 <td>${data.email}</td>
-                <td><button type="button" class="btn btn-primary" onclick="updateData('${data.name}')">update</button></td>
             </tr>
             `
         });
@@ -23,8 +22,3 @@ let loadData = async () => {
         
     }
 }
-
- function updateData(idData) {
-    // alert(`ingin update data ${idData} ?`)
-    // console.log(idData, "mau update data");
- }
